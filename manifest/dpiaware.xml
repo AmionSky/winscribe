@@ -1,0 +1,6 @@
+<asmv3:application xmlns:asmv3="urn:schemas-microsoft-com:asm.v3">
+    <asmv3:windowsSettings>
+        <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">{aware}</dpiAware>
+        <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">{awareness}</dpiAwareness>
+    </asmv3:windowsSettings>
+</asmv3:application>
