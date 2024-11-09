@@ -13,7 +13,7 @@ pub struct Icon {
 
 impl Icon {
     /// Creates a new icon resource.
-    /// 
+    ///
     /// * `id`: A unique name or a 16-bit unsigned integer.
     /// * `path`: Path to the `.ico` file.
     pub fn new<N, P>(id: N, path: P) -> Self
