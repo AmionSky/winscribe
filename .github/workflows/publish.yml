@@ -1,0 +1,38 @@
+name: Publish Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  release:
+    name: Create GitHub Release
+    if: github.repository == 'AmionSky/winscribe'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: SebRollen/toml-action@v1.2.0
+        id: version
+        with:
+          file: 'Cargo.toml'
+          field: 'package.version'
+      - name: Create GitHub Release
+        run: gh release create --generate-notes v${{ steps.version.outputs.value }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    name: Publish to crates.io
+    needs: release
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Login
+      run: cargo login ${{ secrets.CARGO_TOKEN }}
+    - name: Publish
+      run: cargo publish
