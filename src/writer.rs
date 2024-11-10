@@ -11,7 +11,7 @@ pub struct ResWriter {
 impl ResWriter {
     pub fn new() -> Self {
         let mut buffer = Vec::with_capacity(2048);
-        buffer.extend(b"#pragma code_page(65001)\n\n"); // UTF-8
+        buffer.extend(b"#pragma code_page(65001)\n"); // UTF-8
 
         Self {
             level: 0,
@@ -22,11 +22,6 @@ impl ResWriter {
 
     pub fn as_bytes(&self) -> &[u8] {
         &self.buffer
-    }
-
-    pub fn code_page(&mut self, code: u32) {
-        let data = format!("#pragma code_page({code})\n");
-        self.buffer.extend(data.as_bytes());
     }
 
     pub fn line<T: AsRef<str>>(&mut self, line: T) {

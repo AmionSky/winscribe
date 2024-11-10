@@ -66,7 +66,6 @@ impl ResBuilder {
     /// Saves the resource as file.
     pub fn save<P: AsRef<Path>>(&self, path: P) -> Result<(), ResError> {
         let mut writer = ResWriter::new();
-        writer.code_page(65001); // UTF-8
 
         for res in &self.resources {
             writer.new_line(); // Put one empty line between definitions
