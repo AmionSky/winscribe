@@ -49,7 +49,7 @@ pub(crate) fn to_file<P: AsRef<Path>>(path: P, data: &[u8]) -> std::io::Result<(
 // Copied from tauri-winres
 /// Escape string for use in the resource file.
 pub(crate) fn escape(string: &str) -> String {
-    let mut escaped = String::new();
+    let mut escaped = String::with_capacity(string.len() + 64);
     for chr in string.chars() {
         // In quoted RC strings, double-quotes are escaped by using two
         // consecutive double-quotes.  Other characters are escaped in the
