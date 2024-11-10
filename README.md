@@ -2,6 +2,8 @@
 
 A build script to create, compile and include Windows resource and manifest files in your executables.
 
+_This crate is in early stages of development._
+
 ## Usage
 
 Add it as a build dependency to your `Cargo.toml`.
