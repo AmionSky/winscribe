@@ -58,6 +58,10 @@ fn sdk_bin_path() -> Result<PathBuf, CompilerError> {
 }
 
 fn sdk_path() -> Result<PathBuf, CompilerError> {
+    #[cfg(not(windows))]
+    panic!("Not supported on non-windows platforms!");
+
+    #[cfg(windows)]
     Ok(PathBuf::from(
         windows_registry::LOCAL_MACHINE
             .open(r"SOFTWARE\Microsoft\Windows Kits\Installed Roots")

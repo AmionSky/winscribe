@@ -9,5 +9,5 @@ categories = ["development-tools::build-utils"]
 keywords = ["windows", "resource", "manifest"]
 authors = ["Csányi István <icsanyi96@gmail.com>"]
 
-[dependencies]
+[target.'cfg(windows)'.dependencies]
 windows-registry = "0.3.0"
