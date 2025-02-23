@@ -1,6 +1,6 @@
 //! Bitmap icon resource. ([`ICON`](crate::icon::Icon))
 
-use crate::{util, ResError, ResWriter, Resource};
+use crate::{ResError, ResWriter, Resource, util};
 use std::path::PathBuf;
 
 /// Bitmap icon resource. (`ICON`)

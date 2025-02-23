@@ -1,4 +1,4 @@
-use crate::{util, ResError, ResWriter};
+use crate::{ResError, ResWriter, util};
 use std::collections::HashMap;
 
 /// String and variable information block of the `VERSIONINFO` resource.

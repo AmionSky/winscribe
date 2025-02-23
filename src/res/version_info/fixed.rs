@@ -1,4 +1,4 @@
-use crate::{util, ResError, ResWriter};
+use crate::{ResError, ResWriter, util};
 
 const FILE_FLAGS_MASK: u32 = 0x3F; // VS_FFI_FILEFLAGSMASK
 const OS_WIN_NT_32: u32 = 0x40004; // Windows NT 32-bit

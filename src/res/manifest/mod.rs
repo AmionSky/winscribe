@@ -4,7 +4,7 @@ mod features;
 
 pub use features::*;
 
-use crate::{util, ResError, ResWriter, Resource};
+use crate::{ResError, ResWriter, Resource, util};
 use std::path::{Path, PathBuf};
 
 /// Application manifest resource. (`RT_MANIFEST`)
@@ -48,7 +48,9 @@ impl Resource for Manifest {
 }
 
 fn write_manifest<P: AsRef<Path>>(writer: &mut ResWriter, path: P) -> Result<(), ResError> {
-    Ok(writer.line(format!("1 24 \"{}\"", util::escape_path(path)?)))
+    let escaped_path = util::escape_path(path)?;
+    writer.line(format!("1 24 \"{escaped_path}\""));
+    Ok(())
 }
 
 impl From<String> for Manifest {
