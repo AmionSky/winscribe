@@ -32,6 +32,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
+    - name: Update Rust
+      run: rustup update stable
     - name: Login
       run: cargo login ${{ secrets.CARGO_TOKEN }}
     - name: Publish
